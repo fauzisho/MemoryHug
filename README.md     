@@ -1,0 +1,8 @@
+Testing on M2 Pro
+Memory usage and energy consumption comparison.
+Non-optimized memory: Allocated: 968.933 MB, Freed: 968.933 MB
+Non-optimized duration: 14.2131 seconds
+Non-optimized energy consumption: 284.261 Joules
+Optimized memory: Allocated: 0.000968933 MB, Freed: 0.000968933 MB
+Optimized duration: 10.6645 seconds
+Optimized energy consumption: 213.29 Joules
