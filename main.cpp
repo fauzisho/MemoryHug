@@ -93,7 +93,7 @@ private:
     }
 
 public:
-    void nonOptimizedMemoryUsage() {
+    static void nonOptimizedMemoryUsage() {
         for (int i = 0; i < 1000000; ++i) {
             Float8* data = new Float8[1000];
             for (int j = 0; j < 1000; ++j) {
@@ -106,7 +106,7 @@ public:
                   << totalFreed / (1024.0 * 1024.0) << " MB\n";
     }
 
-    void optimizedMemoryUsage() {
+    static void optimizedMemoryUsage() {
         Float8* data = new Float8[1000];
 
         for (int i = 0; i < 1000000; ++i) {
@@ -121,16 +121,16 @@ public:
                   << totalFreed / (1024.0 * 1024.0) << " MB\n";
     }
 
-    double estimateEnergyConsumption(double executionTime, double cpuPower) {
+    static double estimateEnergyConsumption(double executionTime, double cpuPower) {
         return executionTime * cpuPower;
     }
 
-    void resetMemoryTracking() {
+    static void resetMemoryTracking() {
         totalAllocated = 0;
         totalFreed = 0;
     }
 
-    void runAllTests() {
+    static void runAllTests() {
         std::cout << "Memory usage and energy consumption comparison.\n";
 
         // Estimated CPU power consumption in Watts for M2 Pro
@@ -166,7 +166,6 @@ size_t MemoryManager::totalFreed = 0;
 std::mutex MemoryManager::memMutex;
 
 int main() {
-    MemoryManager manager;
-    manager.runAllTests();
+    MemoryManager::runAllTests();
     return 0;
 }
